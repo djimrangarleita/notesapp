@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "48505781198",
+    "project_id": "noteapp-legrand-1st-step",
+    "storage_bucket": "noteapp-legrand-1st-step.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48505781198:android:48fd80d0c7c5280504c99f",
+        "android_client_info": {
+          "package_name": "online.legrand.run.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48505781198-2i53ejcla7q04t0ppgl5pimer6ssg8pk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrZfDxo99zVTVcp6hlJX6eFlcgpMYBdHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48505781198-2i53ejcla7q04t0ppgl5pimer6ssg8pk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

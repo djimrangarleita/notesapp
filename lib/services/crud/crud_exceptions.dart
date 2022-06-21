@@ -1,10 +1,10 @@
-class DatabaseAlreadyOpenedException implements Exception {}
+class DatabaseAlreadyOpenException implements Exception {}
 
 class UnableToGetDocumentsDirectory implements Exception {}
 
 class DatabaseIsNotOpen implements Exception {}
 
-class CouldNotDeleteException implements Exception {}
+class CouldNotDelete implements Exception {}
 
 class UserAlreadyExists implements Exception {}
 

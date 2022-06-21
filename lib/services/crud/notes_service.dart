@@ -12,11 +12,16 @@ class NoteService {
   List<DatabaseNote> _notes = [];
 
   static final NoteService _shared = NoteService._sharedInstance();
-  NoteService._sharedInstance();
+  NoteService._sharedInstance() {
+    _notesStreamController = StreamController<List<DatabaseNote>>.broadcast(
+      onListen: () {
+        _notesStreamController.sink.add(_notes);
+      },
+    );
+  }
   factory NoteService() => _shared;
 
-  final _notesStreamController =
-      StreamController<List<DatabaseNote>>.broadcast();
+  late final StreamController<List<DatabaseNote>> _notesStreamController;
 
   Stream<List<DatabaseNote>> get allNotes => _notesStreamController.stream;
 
@@ -112,7 +117,7 @@ class NoteService {
     );
 
     if (deletedCount == 0) {
-      throw CouldNotDeleteException();
+      throw CouldNotDelete();
     } else {
       _notes.removeWhere((note) => note.id == id);
       _notesStreamController.add(_notes);
@@ -143,7 +148,6 @@ class NoteService {
 
     _notes.add(note);
     _notesStreamController.add(_notes);
-
     return note;
   }
 
@@ -200,7 +204,7 @@ class NoteService {
     );
 
     if (deletedCount != 1) {
-      throw CouldNotDeleteException();
+      throw CouldNotDelete();
     }
   }
 
@@ -227,12 +231,14 @@ class NoteService {
   Future<void> _ensureDbIsOpen() async {
     try {
       await open();
-    } on DatabaseAlreadyOpenedException {}
+    } on DatabaseAlreadyOpenException {
+      // empty
+    }
   }
 
   Future<void> open() async {
     if (_db != null) {
-      throw DatabaseAlreadyOpenedException;
+      throw DatabaseAlreadyOpenException();
     }
     try {
       final docsPath = await getApplicationDocumentsDirectory();

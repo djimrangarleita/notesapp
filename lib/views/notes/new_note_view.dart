@@ -44,7 +44,6 @@ class _NewNoteViewState extends State<NewNoteView> {
       return existingNote;
     }
 
-    print('Bonjour');
     final currentUser = AuthService.firebase().currentUser!;
     final email = currentUser.email!;
     final owner = await _noteService.getUser(email: email);
@@ -104,7 +103,6 @@ class _NewNoteViewState extends State<NewNoteView> {
           }
         },
       ),
-      // body: const Text('Bonsoir'),
     );
   }
 }

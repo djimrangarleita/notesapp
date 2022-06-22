@@ -11,3 +11,5 @@ class UserAlreadyExists implements Exception {}
 class CouldNotFindEntry implements Exception {}
 
 class CouldNotUpdateNote implements Exception {}
+
+class UserShouldBeSet implements Exception {}
